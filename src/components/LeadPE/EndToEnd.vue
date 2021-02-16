@@ -1,0 +1,56 @@
+<template>
+  <div
+    class="fit row wrap justify-evenly items-center content-center col-md-6 col-lg-6 col-sm-12 col-xs-12 template-height"
+  >
+    <q-img
+      src="~assets/images/hksky.jpg"
+      alt="hong kong skyview"
+      :style="
+        screenWidth > $q.screen.sizes.sm
+          ? 'height: 520px; width: 555px;'
+          : 'max-height:520px; max-width: 555px;'
+      "
+    />
+
+    <div
+      class="col-6 col-md-6 col-lg-6 col-sm-12 col-xs-12 max-width-horizontal"
+    >
+      <div class="q-pb-xl text-h2 text-weight-medium">
+        {{ $t("supportInvestors.headline") }}
+      </div>
+      <p>
+        {{ $t("supportInvestors.fully") }}
+      </p>
+      <p>
+        {{ $t("supportInvestors.support") }}
+      </p>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      screenWidth: this.$q.screen.width
+    };
+  },
+  watch: {
+    "$q.screen.width"(val) {
+      this.screenWidth = val;
+    }
+  }
+};
+</script>
+
+<style lang="sass" scoped>
+p
+	color: $primary
+.text-h2
+	color: $accent
+img
+	height: 520px
+	width: 555px
+.max-width-horizontal
+  max-width: 555px
+</style>
